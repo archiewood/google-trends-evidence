@@ -1,32 +1,19 @@
 # Hit the Google Trends API with DuckDB
 
-Definitely don't do this 
+Definitely don't do this for anything in production.
 
-## Get Started using the CLI
+## How do I find the Google Trends Endpoint I need?
 
-```bash
-npx degit archiewood/google-trends-evidence my-project
-cd my-project 
-npm install 
-npm run sources
-npm run dev 
-```
+Go to trends.google.com and search for the term you're interested in. Then, open the network tab in your browser's developer tools and look for a request to a URL that looks like `https://trends.google.com/trends/api/widgetdata/multiline/csv?req=...`. This is the URL you need to hit.
 
-Check out the docs for [alternative install methods](https://docs.evidence.dev/getting-started/install-evidence) including Docker, Github Codespaces, and alongside dbt.
+## I'm getting a 401 error with your example code
 
+The request has a token inlined into it that expires after a while. You'll need to get your own token by visiting the URL in your browser.
 
-## Install Evidence
+## I'm getting CORS errors using this with Evidence
 
-The easiest way to get started is using the [VS Code Extension](https://marketplace.visualstudio.com/items?itemName=evidence-dev.evidence):
+You can't hit the Google Trends API from the browser because of CORS. You can disable CORS in your browser using an extension. You can also just use DuckDB from the CLI.
 
-1. Install the extension from the VS Code Marketplace
-2. Open the Command Palette (Ctrl/Cmd + Shift + P) and enter `Evidence: New Evidence Project`
-3. Click `Start Evidence` in the bottom status bar
+## This still doesn't work
 
-
-## Learning More
-
-- [Docs](https://docs.evidence.dev/)
-- [Github](https://github.com/evidence-dev/evidence)
-- [Slack Community](https://slack.evidence.dev/)
-- [Evidence Home Page](https://www.evidence.dev)
+This is a toy project. I haven't tested it for more than 5 minutes. Also Google might change their API at any time. Good luck!
